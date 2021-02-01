@@ -2,6 +2,8 @@ import React from "react";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 import SignIn from './components/auth/signin/SignIn';
+import SignUp from './components/auth/signup/SignUp';
+
 import Home from "./components/home/Home";
 import Preferences from "./components/preferences/Preferences";
 
@@ -9,10 +11,15 @@ import Preferences from "./components/preferences/Preferences";
 import useToken from './hooks/useToken';
 
 const App = () => {
+  const currentUrl = window.location.pathname;
   const { token, setToken } = useToken();
 
-  if (!token) { 
+  if (!token && !currentUrl.includes("/signup")) { 
     return <SignIn setToken={ setToken }/>
+  }
+
+  if (!token && currentUrl.includes("/signup")) { 
+    return <SignUp/>
   }
 
   return (
@@ -26,6 +33,9 @@ const App = () => {
           <Route path="/preferences">
             <Preferences></Preferences>
           </Route>
+          <Route path="/signup">
+            <SignUp></SignUp>
+          </Route>
         </Switch>
 
         <nav>
@@ -35,6 +45,9 @@ const App = () => {
             </li>
             <li>
               <Link to="/preferences">Preferences</Link>
+            </li>
+            <li>
+              <Link to="/signup">SignUp</Link>
             </li>
           </ul>
         </nav>
