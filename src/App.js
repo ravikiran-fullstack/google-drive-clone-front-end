@@ -18,7 +18,8 @@ const App = () => {
     return <SignIn setToken={ setToken }/>
   }
 
-  if (!token && currentUrl.includes("/signup")) { 
+  if (currentUrl.includes("/signup")) { 
+    localStorage.clear();
     return <SignUp/>
   }
 
@@ -33,8 +34,8 @@ const App = () => {
           <Route path="/preferences">
             <Preferences></Preferences>
           </Route>
-          <Route path="/signup">
-            <SignUp></SignUp>
+          <Route exact path="/">
+            <Home></Home>
           </Route>
         </Switch>
 
@@ -45,9 +46,6 @@ const App = () => {
             </li>
             <li>
               <Link to="/preferences">Preferences</Link>
-            </li>
-            <li>
-              <Link to="/signup">SignUp</Link>
             </li>
           </ul>
         </nav>
