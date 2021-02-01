@@ -2,14 +2,14 @@ import { useState } from 'react';
 
 const useToken = () => {
   const getToken = () => { 
-    const tokenString = sessionStorage.getItem('token');
+    const tokenString = localStorage.getItem('token');
     
     console.log(tokenString);
     return tokenString ? tokenString: null;
   }
 
   const saveToken = userToken => {
-    sessionStorage.setItem('token', JSON.stringify(userToken));
+    localStorage.setItem('token', JSON.stringify(userToken));
     setToken(userToken.token);
   };
 
