@@ -9,10 +9,15 @@ const useToken = () => {
   }
 
   const saveToken = userToken => {
-    localStorage.setItem('token', JSON.stringify(userToken.token));
-    console.log(userToken);
-    window.location.assign('/');
-    setToken(userToken.token);
+    console.log('userToken ------------', userToken);
+    if (userToken && userToken.username) { 
+      localStorage.setItem('token', JSON.stringify(userToken.token));
+      setToken(userToken.token);
+    }
+    
+    //console.log(userToken);
+    //window.location.assign('/');
+    
   };
 
   const [token, setToken] = useState(getToken());

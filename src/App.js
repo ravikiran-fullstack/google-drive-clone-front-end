@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 import SignIn from './components/auth/signin/SignIn';
 import SignUp from './components/auth/signup/SignUp';
+import ConfirmEmailForgotPassword from './components/auth/confirmEmailForgotPassword/ComfirmEmailForgotPassword';
 
 import Home from "./components/home/Home";
 import Preferences from "./components/preferences/Preferences";
@@ -14,14 +15,21 @@ const App = () => {
   const currentUrl = window.location.pathname;
   const { token, setToken } = useToken();
 
-  if (!token && !currentUrl.includes("/signup")) { 
-    return <SignIn setToken={ setToken }/>
-  }
-
   if (currentUrl.includes("/signup")) { 
     localStorage.clear();
     return <SignUp/>
   }
+
+  if (currentUrl.includes('/confirmEmail')) { 
+    localStorage.clear();
+    return <ConfirmEmailForgotPassword/>
+  }
+
+  if (!token && !currentUrl.includes("/signup")) { 
+    return <SignIn setToken={ setToken }/>
+  }
+
+
 
   return (
     <div className="wrapper">

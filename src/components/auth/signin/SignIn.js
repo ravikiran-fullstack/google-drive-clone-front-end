@@ -122,7 +122,7 @@ const SignIn = ({ setToken }) => {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link href="/confirmEmail" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
