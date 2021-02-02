@@ -1,6 +1,6 @@
 Use these credentials to test the app
-ravikiransjce.code@gmail.com
-123
+username: ravikiransjce.code@gmail.com
+password: 123
 
 # Getting Started with Create React App
 
