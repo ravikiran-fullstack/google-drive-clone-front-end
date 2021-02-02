@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import SignIn from './components/auth/signin/SignIn';
 import SignUp from './components/auth/signup/SignUp';
 import ConfirmEmailForgotPassword from './components/auth/confirmEmailForgotPassword/ComfirmEmailForgotPassword';
+import ResetPassword from './components/auth/resetPassword/ResetPassword';
 
 import Home from "./components/home/Home";
 import Preferences from "./components/preferences/Preferences";
@@ -20,9 +21,14 @@ const App = () => {
     return <SignUp/>
   }
 
-  if (currentUrl.includes('/confirmEmail')) { 
+  if (currentUrl.includes('/confirmemail')) { 
     localStorage.clear();
     return <ConfirmEmailForgotPassword/>
+  }
+
+  if (currentUrl.includes('/reset')) { 
+    localStorage.clear();
+    return <ResetPassword/>
   }
 
   if (!token && !currentUrl.includes("/signup")) { 
