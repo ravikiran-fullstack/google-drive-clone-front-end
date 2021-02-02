@@ -23,6 +23,7 @@ const Upload = () => {
       accessKeyId: process.env.REACT_APP_ACCESS_ID,
       secretAccessKey: process.env.REACT_APP_ACCESS_KEY,
     };
+    
     const ReactS3Client = new S3(config);
     ReactS3Client.uploadFile(file, newFileName).then((data) => {
       console.log(data);
