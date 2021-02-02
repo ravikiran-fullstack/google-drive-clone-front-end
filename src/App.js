@@ -8,6 +8,7 @@ import ResetPassword from './components/auth/resetPassword/ResetPassword';
 
 import Home from "./components/home/Home";
 import Preferences from "./components/preferences/Preferences";
+import Upload from "./components/upload/Upload";
 
 //hooks
 import useToken from './hooks/useToken';
@@ -35,8 +36,6 @@ const App = () => {
     return <SignIn setToken={ setToken }/>
   }
 
-
-
   return (
     <div className="wrapper">
       <h1> Google Drive Clone</h1>
@@ -47,6 +46,9 @@ const App = () => {
           </Route>
           <Route path="/preferences">
             <Preferences></Preferences>
+          </Route>
+          <Route path="/upload">
+            <Upload></Upload>
           </Route>
           <Route exact path="/">
             <Home></Home>
@@ -60,6 +62,9 @@ const App = () => {
             </li>
             <li>
               <Link to="/preferences">Preferences</Link>
+            </li>
+            <li>
+              <Link to="/upload">Upload</Link>
             </li>
           </ul>
         </nav>
